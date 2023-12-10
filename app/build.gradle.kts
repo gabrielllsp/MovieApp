@@ -52,6 +52,9 @@ dependencies {
     implementation("com.google.firebase:firebase-database")
     implementation("com.google.firebase:firebase-storage")
 
+//Splash Api
+    implementation ("androidx.core:core-splashscreen:1.0.0-beta02")
+
 
     //Test
     testImplementation("junit:junit:4.13.2")
