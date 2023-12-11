@@ -1,4 +1,4 @@
-package com.gabrielalmeida.movieapp.presenter.register
+package com.gabrielalmeida.movieapp.presenter.auth.register
 
 import android.os.Bundle
 import android.view.LayoutInflater

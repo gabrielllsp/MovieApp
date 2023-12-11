@@ -1,4 +1,4 @@
-package com.gabrielalmeida.movieapp.presenter.home
+package com.gabrielalmeida.movieapp.presenter.auth.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
