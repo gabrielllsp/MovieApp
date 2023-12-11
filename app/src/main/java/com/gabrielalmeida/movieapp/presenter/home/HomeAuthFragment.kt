@@ -1,23 +1,24 @@
-package com.gabrielalmeida.movieapp.presenter.onboarding
+package com.gabrielalmeida.movieapp.presenter.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.gabrielalmeida.movieapp.databinding.FragmentOnbordingBinding
+import com.gabrielalmeida.movieapp.databinding.FragmentHomeAuthBinding
 
 
-class OnboardingFragment : Fragment() {
+class HomeAuthFragment : Fragment() {
 
-    private var _binding: FragmentOnbordingBinding? = null
+    private var _binding: FragmentHomeAuthBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentOnbordingBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeAuthBinding.inflate(inflater, container, false)
         return binding.root
     }
 
