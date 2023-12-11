@@ -47,16 +47,14 @@ dependencies {
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-
-
     //Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-database")
     implementation("com.google.firebase:firebase-storage")
 
-//Splash Api
-    implementation ("androidx.core:core-splashscreen:1.0.0-beta02")
+    //Splash Api
+    implementation("androidx.core:core-splashscreen:1.0.0-beta02")
 
 
     //Test
