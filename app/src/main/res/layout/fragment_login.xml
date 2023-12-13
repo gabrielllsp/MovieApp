@@ -80,7 +80,7 @@
             tools:ignore="LabelFor" />
 
         <Button
-            android:id="@+id/btn_register"
+            android:id="@+id/btn_login"
             style="@style/ThemeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_password" />
 
-        <ProgressBar
+        <ImageView
             android:id="@+id/progress_loading"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -101,10 +101,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_register"
+            app:layout_constraintTop_toBottomOf="@+id/btn_login"
             app:layout_constraintVertical_bias="0.0"
             tools:src="@drawable/loading"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/btn_forgot"

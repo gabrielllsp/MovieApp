@@ -35,7 +35,6 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initListeners()
-
     }
 
     private fun initListeners() {
