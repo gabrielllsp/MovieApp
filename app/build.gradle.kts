@@ -56,6 +56,17 @@ dependencies {
     implementation("com.google.firebase:firebase-database")
     implementation("com.google.firebase:firebase-storage")
 
+    //Lifecycle
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+
+    //Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
+
+    //Glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
     //Hilt
     implementation("com.google.dagger:hilt-android:2.48.1")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
