@@ -17,10 +17,12 @@ object FirebaseModule {
         return FirebaseAuth.getInstance()
     }
 
+    @Provides
     fun providesFirebaseDatabase(): FirebaseDatabase {
         return FirebaseDatabase.getInstance()
     }
 
+    @Provides
     fun providesFirebaseStorage(): FirebaseStorage {
         return FirebaseStorage.getInstance()
     }

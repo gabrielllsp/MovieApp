@@ -1,8 +1,9 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("kotlin-android")
     id("com.google.gms.google-services")
-    kotlin("kapt")
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
     id("com.google.dagger.hilt.android")
 
 }
@@ -41,6 +42,10 @@ android {
         viewBinding = true
     }
 
+    kapt {
+        correctErrorTypes = true
+    }
+
 }
 
 dependencies {
@@ -61,15 +66,16 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
     //Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
 
     //Glide
     implementation ("com.github.bumptech.glide:glide:4.16.0")
 
     //Hilt
     implementation("com.google.dagger:hilt-android:2.48.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
+
 
     //Splash Api
     implementation("androidx.core:core-splashscreen:1.0.1")
