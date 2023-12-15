@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.gabrielalmeida.movieapp.R
 import com.gabrielalmeida.movieapp.databinding.FragmentRegisterBinding
-import com.gabrielalmeida.movieapp.presenter.MainActivity
+import com.gabrielalmeida.movieapp.presenter.main.activity.MainActivity
 import com.gabrielalmeida.movieapp.util.FirebaseHelper
 import com.gabrielalmeida.movieapp.util.StateView
 import com.gabrielalmeida.movieapp.util.hideKeyboard
@@ -55,11 +55,11 @@ class RegisterFragment : Fragment() {
 
     private fun validateData() {
         val email = binding.editEmail.text.toString()
-        val password = binding.editPassword.toString()
+        val password = binding.editPassword.text.toString()
 
         if (email.isEmailValid()) {
-            hideKeyboard()
             if (password.isNotEmpty()) {
+                hideKeyboard()
                 register(email, password)
 
             } else {
@@ -77,7 +77,6 @@ class RegisterFragment : Fragment() {
     private fun register(email: String, password: String) {
         viewModel.register(email, password).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
-
                 is StateView.Loading -> {
                     binding.progressLoading.isVisible = true
                 }
