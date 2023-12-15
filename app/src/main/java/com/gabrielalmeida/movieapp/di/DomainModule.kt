@@ -13,6 +13,6 @@ abstract class DomainModule {
 
     @Binds
     abstract fun bindsFirebaseAuthenticationImpl(
-        bindsFirebaseAuthenticationImpl: FirebaseAuthenticationImpl
+        firebaseAuthenticationImpl: FirebaseAuthenticationImpl
     ): FirebaseAuthentication
 }

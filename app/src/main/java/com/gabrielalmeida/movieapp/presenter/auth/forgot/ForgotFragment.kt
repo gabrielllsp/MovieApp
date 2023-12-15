@@ -4,17 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.gabrielalmeida.movieapp.R
 import com.gabrielalmeida.movieapp.databinding.FragmentForgotBinding
+import com.gabrielalmeida.movieapp.util.FirebaseHelper
 import com.gabrielalmeida.movieapp.util.StateView
 import com.gabrielalmeida.movieapp.util.hideKeyboard
 import com.gabrielalmeida.movieapp.util.initToolbar
 import com.gabrielalmeida.movieapp.util.isEmailValid
+import com.gabrielalmeida.movieapp.util.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -58,7 +59,9 @@ class ForgotFragment : Fragment() {
             hideKeyboard()
             forgot(email)
         } else {
-            Toast.makeText(requireContext(), "Email inválido", Toast.LENGTH_LONG).show()
+            showSnackBar(
+                message = R.string.text_email_empty_forgot_fragment
+            )
         }
     }
 
@@ -71,16 +74,17 @@ class ForgotFragment : Fragment() {
                 }
 
                 is StateView.Success -> {
-                    Toast.makeText(
-                        requireContext(),
-                        "Email enviado com sucesso.",
-                        Toast.LENGTH_LONG
-                    ).show()
+
+                    showSnackBar(
+                        message = R.string.text_send_email_sucess_forgot_fragment
+                    )
                 }
 
                 is StateView.Error -> {
                     binding.progressLoading.isVisible = false
-                    Toast.makeText(requireContext(), stateView.message, Toast.LENGTH_LONG).show()
+                    showSnackBar(
+                        message = FirebaseHelper.validError(error = stateView.message ?: "")
+                    )
                 }
             }
 
