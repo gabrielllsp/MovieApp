@@ -24,15 +24,15 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
 
+    private val viewModel: LoginViewModel by viewModels()
+
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: LoginViewModel by viewModels()
-
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
@@ -50,7 +50,6 @@ class LoginFragment : Fragment() {
 
         binding.btnForgot.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_forgotFragment)
-
         }
 
         Glide
@@ -61,13 +60,12 @@ class LoginFragment : Fragment() {
 
     private fun validateData() {
         val email = binding.editEmail.text.toString()
-        val password = binding.editPassword.toString()
+        val password = binding.editPassword.text.toString()
 
         if (email.isEmailValid()) {
             if (password.isNotEmpty()) {
                 hideKeyboard()
                 login(email, password)
-
             } else {
                 showSnackBar(message = R.string.text_password_empty_login_fragment)
             }
@@ -79,16 +77,13 @@ class LoginFragment : Fragment() {
     private fun login(email: String, password: String) {
         viewModel.login(email, password).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
-
                 is StateView.Loading -> {
                     binding.progressLoading.isVisible = true
                 }
-
                 is StateView.Success -> {
                     startActivity(Intent(requireContext(), MainActivity::class.java))
                     requireActivity().finish()
                 }
-
                 is StateView.Error -> {
                     binding.progressLoading.isVisible = false
                     showSnackBar(
@@ -96,12 +91,11 @@ class LoginFragment : Fragment() {
                     )
                 }
             }
-
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 

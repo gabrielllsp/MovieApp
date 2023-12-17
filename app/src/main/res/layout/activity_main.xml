@@ -11,7 +11,7 @@
         android:id="@+id/nav_host_fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:defaultNaviHost="true"
+        app:defaultNavHost="true"
         android:layout_weight="1"
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/main_graph"/>
@@ -24,9 +24,7 @@
         app:itemPaddingBottom="16dp"
         app:itemPaddingTop="16dp"
         app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+
         app:menu="@menu/menu_main" />
 
 

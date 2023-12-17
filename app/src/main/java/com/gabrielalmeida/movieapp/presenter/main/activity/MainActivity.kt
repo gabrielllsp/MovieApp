@@ -2,7 +2,7 @@ package com.gabrielalmeida.movieapp.presenter.main.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.btnv, navController)
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            binding.btnv.isInvisible =
+            binding.btnv.isVisible =
                 destination.id == R.id.menu_home ||
                         destination.id == R.id.menu_search ||
                         destination.id == R.id.menu_favorite ||
