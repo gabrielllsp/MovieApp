@@ -6,6 +6,7 @@ import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.gabrielalmeida.movieapp.BuildConfig
 import com.gabrielalmeida.movieapp.R
 import com.gabrielalmeida.movieapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initNavigation()
+
+        BuildConfig.API_KEY
+
+
     }
 
     private fun initNavigation() {
