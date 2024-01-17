@@ -2,6 +2,7 @@ package com.gabrielalmeida.movieapp.data.api
 
 import com.gabrielalmeida.movieapp.data.model.BasePaginationRemote
 import com.gabrielalmeida.movieapp.data.model.GenreResponse
+import com.gabrielalmeida.movieapp.data.model.GenresResponse
 import com.gabrielalmeida.movieapp.data.model.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -12,7 +13,7 @@ interface ServiceApi {
     suspend fun getGenres(
         @Query("api_key")apiKey: String,
         @Query("Language") language: String?
-        ): GenreResponse
+        ): GenresResponse
 
     @GET("discover/movie")
     suspend fun getMoviesByGenre(
