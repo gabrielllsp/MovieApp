@@ -1,0 +1,23 @@
+package com.gabrielalmeida.movieapp.data.api
+
+import com.gabrielalmeida.movieapp.data.model.BasePaginationRemote
+import com.gabrielalmeida.movieapp.data.model.GenreResponse
+import com.gabrielalmeida.movieapp.data.model.MovieResponse
+import retrofit2.http.GET
+import retrofit2.http.Query
+
+interface ServiceApi {
+
+    @GET("genre/movie/list")
+    suspend fun getGenres(
+        @Query("api_key")apiKey: String,
+        @Query("Language") language: String?
+        ): GenreResponse
+
+    @GET("discover/movie")
+    suspend fun getMoviesByGenre(
+        @Query("api_key")apiKey: String,
+        @Query("Language") language: String?,
+        @Query("with_genres") genreId: Int?,
+    ): BasePaginationRemote<List<MovieResponse>>
+}
