@@ -1,6 +1,7 @@
 package com.gabrielalmeida.movieapp.di
 
 import com.gabrielalmeida.movieapp.data.repository.auth.FirebaseAuthenticationImpl
+import com.gabrielalmeida.movieapp.data.repository.movie.MovieRepositoryImpl
 import com.gabrielalmeida.movieapp.domain.repository.auth.FirebaseAuthentication
 import dagger.Binds
 import dagger.Module
@@ -15,4 +16,9 @@ abstract class DomainModule {
     abstract fun bindsFirebaseAuthenticationImpl(
         firebaseAuthenticationImpl: FirebaseAuthenticationImpl
     ): FirebaseAuthentication
+
+    @Binds
+    abstract fun bindsMovieRepositoryImpl(
+        movieRepositoryImpl: MovieRepositoryImpl
+    ): MovieRepositoryImpl
 }
