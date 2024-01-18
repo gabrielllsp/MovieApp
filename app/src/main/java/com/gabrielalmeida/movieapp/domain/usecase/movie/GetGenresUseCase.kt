@@ -5,7 +5,7 @@ import com.gabrielalmeida.movieapp.domain.model.Genre
 import com.gabrielalmeida.movieapp.domain.repository.movie.MovieRepository
 import javax.inject.Inject
 
-class GetGenreUseCase @Inject constructor(
+class GetGenresUseCase @Inject constructor(
     private val repository: MovieRepository
 ){
     suspend operator fun invoke(apiKey: String, language: String?): List<Genre>{

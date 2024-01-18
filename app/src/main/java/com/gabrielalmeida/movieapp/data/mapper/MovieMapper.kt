@@ -4,6 +4,7 @@ import com.gabrielalmeida.movieapp.data.model.GenreResponse
 import com.gabrielalmeida.movieapp.data.model.MovieResponse
 import com.gabrielalmeida.movieapp.domain.model.Genre
 import com.gabrielalmeida.movieapp.domain.model.Movie
+import com.gabrielalmeida.movieapp.presenter.model.GenrePresentation
 
 fun GenreResponse.toDomain(): Genre {
     return Genre(
@@ -30,5 +31,13 @@ fun MovieResponse.toDomain(): Movie{
         voteCount = voteCount
 
 
+    )
+}
+
+fun Genre.toPresentation(): GenrePresentation{
+    return GenrePresentation(
+        id = id,
+        name = name,
+        movies = emptyList()
     )
 }
