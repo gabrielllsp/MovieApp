@@ -6,11 +6,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.gabrielalmeida.movieapp.R
 import com.gabrielalmeida.movieapp.databinding.GenreItemBinding
 import com.gabrielalmeida.movieapp.presenter.model.GenrePresentation
 
 class GenreMovieAdapter(
-    private val showAllListener:(Int) -> Unit
+    private val showAllListener:(Int, String) -> Unit
 ) :
     ListAdapter<GenrePresentation, GenreMovieAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
@@ -49,13 +50,16 @@ class GenreMovieAdapter(
 
         holder.binding.genreName.text = genre.name
 
-        val movieAdapter = MovieAdapter(holder.binding.root.context)
+        val movieAdapter = MovieAdapter(
+            context = holder.binding.root.context,
+            layoutInflater = R.layout.movie_item
+        )
         val layoutManager = LinearLayoutManager(
             holder.binding.root.context,
             LinearLayoutManager.HORIZONTAL, false
         )
         holder.binding.textShowAll.setOnClickListener {
-            genre.id?.let { showAllListener(it) }
+            genre.id?.let { showAllListener(genre.id, genre.name ?: "") }
         }
 
         holder.binding.recyclerMovies.layoutManager = layoutManager

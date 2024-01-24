@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import com.gabrielalmeida.movieapp.R
 import com.gabrielalmeida.movieapp.databinding.FragmentMovieGenreBinding
 import com.gabrielalmeida.movieapp.presenter.main.bottombar.home.adapter.MovieAdapter
 import com.gabrielalmeida.movieapp.util.StateView
@@ -38,12 +39,16 @@ class MovieGenreFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar(toolbar = binding.toolbar)
+        binding.textTitle.text = args.name
         initRecycler()
         getMoviesByGenre()
     }
 
     private fun initRecycler() {
-        movieAdapter = MovieAdapter(requireContext())
+        movieAdapter = MovieAdapter(
+            context = requireContext(),
+            layoutInflater = R.layout.movie_genre_item
+        )
 
         with(binding.recyclerMovies) {
             layoutManager = GridLayoutManager(requireContext(), 2)
