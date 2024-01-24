@@ -1,4 +1,4 @@
-package com.gabrielalmeida.movieapp.presenter.main.home.adapter
+package com.gabrielalmeida.movieapp.presenter.main.bottombar.home.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

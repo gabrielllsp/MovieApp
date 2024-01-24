@@ -1,4 +1,4 @@
-package com.gabrielalmeida.movieapp.presenter.main.home
+package com.gabrielalmeida.movieapp.presenter.main.bottombar.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData

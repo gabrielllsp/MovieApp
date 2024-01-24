@@ -1,4 +1,4 @@
-package com.gabrielalmeida.movieapp.presenter.main.home.adapter
+package com.gabrielalmeida.movieapp.presenter.main.bottombar.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gabrielalmeida.movieapp.databinding.GenreItemBinding
 import com.gabrielalmeida.movieapp.presenter.model.GenrePresentation
 
-class GenreMovieAdapter :
+class GenreMovieAdapter(
+    private val showAllListener:(Int) -> Unit
+) :
     ListAdapter<GenrePresentation, GenreMovieAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     companion object {
@@ -52,6 +54,9 @@ class GenreMovieAdapter :
             holder.binding.root.context,
             LinearLayoutManager.HORIZONTAL, false
         )
+        holder.binding.textShowAll.setOnClickListener {
+            genre.id?.let { showAllListener(it) }
+        }
 
         holder.binding.recyclerMovies.layoutManager = layoutManager
         holder.binding.recyclerMovies.setHasFixedSize(true)

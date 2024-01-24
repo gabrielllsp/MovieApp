@@ -59,7 +59,7 @@
     <string name="text_email_empty_forgot_fragment">Digite um e-mail válido</string>
     <string name="text_send_email_sucess_forgot_fragment">Email enviado com sucesso</string>
 
-<!--    GenreItem-->
+    <!--    GenreItem-->
     <string name="text_show_all_genre_item">Ver todos</string>
 
     <!--    BottomBar-->

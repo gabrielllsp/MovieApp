@@ -1,4 +1,4 @@
-package com.gabrielalmeida.movieapp.presenter.main.favorite
+package com.gabrielalmeida.movieapp.presenter.main.bottombar.favorite
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
