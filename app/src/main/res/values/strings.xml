@@ -62,7 +62,7 @@
     <!--    GenreItem-->
     <string name="text_show_all_genre_item">Ver todos</string>
 
-<!--    MovieGenreFragment-->
+    <!--    MovieGenreFragment-->
     <string name="text_search_hint_movie_genre_fragment">Pesquisar</string>
 
     <!--    BottomBar-->
