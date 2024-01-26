@@ -75,7 +75,7 @@ class MovieGenreFragment : Fragment() {
             SimpleSearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 hideKeyboard()
-                if (query.isNotEmpty()){
+                if (query.isNotEmpty()) {
                     searchMovies(query)
                 }
                 return true
@@ -91,6 +91,24 @@ class MovieGenreFragment : Fragment() {
                 return false
             }
         })
+        binding.simpleSearchView.setOnSearchViewListener(object :
+            SimpleSearchView.SearchViewListener {
+            override fun onSearchViewShown() {
+                Log.d("SimpleSearchView", "onSearchViewShown")
+            }
+
+            override fun onSearchViewClosed() {
+                getMoviesByGenre()
+            }
+
+            override fun onSearchViewShownAnimation() {
+                Log.d("SimpleSearchView", "onSearchViewShownAnimation")
+            }
+
+            override fun onSearchViewClosedAnimation() {
+                Log.d("SimpleSearchView", "onSearchViewClosedAnimation")
+            }
+        })
     }
 
     private fun getMoviesByGenre() {
@@ -99,12 +117,13 @@ class MovieGenreFragment : Fragment() {
             when (stateView) {
                 is StateView.Loading -> {
                     binding.progressBar.isVisible = true
-
+                    binding.recyclerMovies.isVisible = false
                 }
 
                 is StateView.Success -> {
                     binding.progressBar.isVisible = false
                     movieAdapter.submitList(stateView.data)
+                    binding.recyclerMovies.isVisible = true
                 }
 
                 is StateView.Error -> {
@@ -141,7 +160,6 @@ class MovieGenreFragment : Fragment() {
 
         }
     }
-
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
