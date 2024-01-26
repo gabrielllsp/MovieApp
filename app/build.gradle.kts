@@ -92,6 +92,8 @@ dependencies {
     //Splash Api
     implementation("androidx.core:core-splashscreen:1.0.1")
 
+    //SimpleSearchView
+    implementation ("com.github.Ferfalk:SimpleSearchView:0.2.1")
 
 
     //Test
