@@ -11,9 +11,11 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ferfalk.simplesearchview.SimpleSearchView
+import com.gabrielalmeida.movieapp.MainGraphDirections
 import com.gabrielalmeida.movieapp.R
 import com.gabrielalmeida.movieapp.databinding.FragmentMovieGenreBinding
 import com.gabrielalmeida.movieapp.presenter.main.bottombar.home.adapter.MovieAdapter
@@ -60,7 +62,14 @@ class MovieGenreFragment : Fragment() {
     private fun initRecycler() {
         movieAdapter = MovieAdapter(
             context = requireContext(),
-            layoutInflater = R.layout.movie_genre_item
+            layoutInflater = R.layout.movie_genre_item,
+            movieClickListener = { movieId ->
+                movieId?.let {
+                    val action = MainGraphDirections
+                        .actionGlobalMovieDetailsFragment(movieId)
+                    findNavController().navigate(action)
+                }
+            }
         )
 
         with(binding.recyclerMovies) {

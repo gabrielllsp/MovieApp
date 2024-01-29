@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.gabrielalmeida.movieapp.MainGraphDirections
 import com.gabrielalmeida.movieapp.databinding.FragmentHomeBinding
 import com.gabrielalmeida.movieapp.presenter.main.bottombar.home.adapter.GenreMovieAdapter
 import com.gabrielalmeida.movieapp.presenter.model.GenrePresentation
@@ -91,10 +92,21 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRecycler() {
-        genreMovieAdapter = GenreMovieAdapter{genreId, name ->
-            val action = HomeFragmentDirections.actionMenuHomeToMovieGenreFragment(genreId, name)
-            findNavController().navigate(action)
-        }
+        genreMovieAdapter = GenreMovieAdapter(
+            showAllListener = { genreId, name ->
+                val action = HomeFragmentDirections
+                    .actionMenuHomeToMovieGenreFragment(genreId, name)
+                findNavController().navigate(action)
+            },
+            movieClickListener = {movieId ->
+                movieId?.let {
+                    val action = MainGraphDirections
+                        .actionGlobalMovieDetailsFragment(movieId)
+                    findNavController().navigate(action)
+                }
+            }
+        )
+
 
         with(binding.recyclerGenres) {
             setHasFixedSize(true)
