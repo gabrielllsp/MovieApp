@@ -13,6 +13,8 @@ import com.gabrielalmeida.movieapp.domain.model.Movie
 import com.gabrielalmeida.movieapp.util.StateView
 import com.gabrielalmeida.movieapp.util.initToolbar
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @AndroidEntryPoint
 class MovieDetailsFragment : Fragment() {
@@ -40,26 +42,37 @@ class MovieDetailsFragment : Fragment() {
         getMovieDetails()
     }
 
-    private fun getMovieDetails(){
-        viewModel.getMovieDetails(movieId = args.movieId).observe(viewLifecycleOwner){stateView ->
-            when(stateView){
+    private fun getMovieDetails() {
+        viewModel.getMovieDetails(movieId = args.movieId).observe(viewLifecycleOwner) { stateView ->
+            when (stateView) {
 
                 is StateView.Loading -> {}
                 is StateView.Success -> {
                     configData(movie = stateView.data)
                 }
+
                 is StateView.Error -> {}
             }
         }
     }
 
-    private fun configData(movie: Movie?){
+    private fun configData(movie: Movie?) {
         Glide
             .with(requireContext())
             .load("https://image.tmdb.org/t/p/w500${movie?.posterPath}")
             .into(binding.imageMovie)
 
         binding.textMovie.text = movie?.title
+        binding.textVoteAverage.text = String.format("%.1f", movie?.voteAverage)
+
+        val originalFormat = SimpleDateFormat("yyyy-MM-dd", Locale.ROOT)
+        val data = originalFormat.parse(movie?.releaseDate ?: "")
+
+        val yearFormat = SimpleDateFormat("yyyy", Locale.ROOT)
+        val year = yearFormat.format(data)
+
+        binding.textReleaseDate.text = year
+        binding.textProductionCountry.text = movie?.productionCountries?.get(0)?.name ?: ""
     }
 
     override fun onDestroy() {
