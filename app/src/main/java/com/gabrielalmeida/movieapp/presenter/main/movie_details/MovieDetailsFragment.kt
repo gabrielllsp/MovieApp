@@ -62,17 +62,21 @@ class MovieDetailsFragment : Fragment() {
             .load("https://image.tmdb.org/t/p/w500${movie?.posterPath}")
             .into(binding.imageMovie)
 
+
+
         binding.textMovie.text = movie?.title
         binding.textVoteAverage.text = String.format("%.1f", movie?.voteAverage)
+
+        binding.textProductionCountry.text = movie?.productionCountries?.get(0)?.name ?: ""
+
 
         val originalFormat = SimpleDateFormat("yyyy-MM-dd", Locale.ROOT)
         val data = originalFormat.parse(movie?.releaseDate ?: "")
 
         val yearFormat = SimpleDateFormat("yyyy", Locale.ROOT)
-        val year = yearFormat.format(data)
+        val year = data?.let { yearFormat.format(it) }
 
         binding.textReleaseDate.text = year
-        binding.textProductionCountry.text = movie?.productionCountries?.get(0)?.name ?: ""
     }
 
     override fun onDestroy() {
