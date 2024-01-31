@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.gabrielalmeida.movieapp.R
 import com.gabrielalmeida.movieapp.databinding.FragmentMoviedetailsBinding
 import com.gabrielalmeida.movieapp.domain.model.Movie
 import com.gabrielalmeida.movieapp.util.StateView
@@ -77,6 +78,8 @@ class MovieDetailsFragment : Fragment() {
         val year = data?.let { yearFormat.format(it) }
 
         binding.textReleaseDate.text = year
+        val genres = movie?.genres?.map { it.name }?.joinToString(", ")
+        binding.textGenres.text = getString(R.string.text_all_genres_movie_details_fragment, genres)
     }
 
     override fun onDestroy() {

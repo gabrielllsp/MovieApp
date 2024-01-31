@@ -219,7 +219,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bg_border_red_full_fill"
                     android:fontFamily="@font/urbanist_600"
-                    android:text="Play"
+                    android:text="@string/text_button_play_movie_details_fragment"
                     android:textAllCaps="false"
                     app:icon="@drawable/ic_play"
                     app:iconGravity="textStart" />
@@ -232,7 +232,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bg_border_red_full_line"
                     android:fontFamily="@font/urbanist_600"
-                    android:text="Download"
+                    android:text="@string/text_button_download_movie_details_fragment"
                     android:textAllCaps="false"
                     android:textColor="@color/color_default"
                     app:backgroundTint="@null"
@@ -242,22 +242,22 @@
 
             </LinearLayout>
 
-<!--            <TextView-->
-<!--                android:id="@+id/text_genres"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="16dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:ellipsize="end"-->
-<!--                android:fontFamily="@font/urbanist_500"-->
-<!--                android:maxLines="1"-->
-<!--                android:textColor="#212121"-->
-<!--                android:textSize="12sp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.5"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"-->
-<!--                tools:text="Genre: Action, Superhero, Science Fiction, Romance, Thriller" />-->
+            <TextView
+                android:id="@+id/text_genres"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="20dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/urbanist_500"
+                android:maxLines="1"
+                android:textColor="#212121"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                tools:text="Genre: Action, Superhero, Science Fiction, Romance, Thriller" />
 
 <!--            <TextView-->
 <!--                android:id="@+id/text_description"-->
