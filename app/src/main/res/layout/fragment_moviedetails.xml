@@ -200,47 +200,47 @@
 
             </HorizontalScrollView>
 
-<!--            <LinearLayout-->
-<!--                android:id="@+id/linearLayout5"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="16dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:orientation="horizontal"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.5"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">-->
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
 
-<!--                <com.google.android.material.button.MaterialButton-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="38dp"-->
-<!--                    android:layout_marginEnd="4dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:background="@drawable/bg_border_red_full_fill"-->
-<!--                    android:fontFamily="@font/urbanist_600"-->
-<!--                    android:text="@string/text_button_play_movie_details_fragment"-->
-<!--                    android:textAllCaps="false"-->
-<!--                    app:icon="@drawable/ic_play"-->
-<!--                    app:iconGravity="textStart" />-->
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_border_red_full_fill"
+                    android:fontFamily="@font/urbanist_600"
+                    android:text="Play"
+                    android:textAllCaps="false"
+                    app:icon="@drawable/ic_play"
+                    app:iconGravity="textStart" />
 
-<!--                <com.google.android.material.button.MaterialButton-->
-<!--                    android:id="@+id/btn_downloading"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="38dp"-->
-<!--                    android:layout_marginStart="4dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:background="@drawable/bg_border_red_full_line"-->
-<!--                    android:fontFamily="@font/urbanist_600"-->
-<!--                    android:text="@string/text_button_download_movie_details_fragment"-->
-<!--                    android:textAllCaps="false"-->
-<!--                    android:textColor="@color/color_default"-->
-<!--                    app:backgroundTint="@null"-->
-<!--                    app:icon="@drawable/ic_download"-->
-<!--                    app:iconGravity="textStart"-->
-<!--                    app:iconTint="@color/color_default" />-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_downloading"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_border_red_full_line"
+                    android:fontFamily="@font/urbanist_600"
+                    android:text="Download"
+                    android:textAllCaps="false"
+                    android:textColor="@color/color_default"
+                    app:backgroundTint="@null"
+                    app:icon="@drawable/ic_download"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/color_default" />
 
-<!--            </LinearLayout>-->
+            </LinearLayout>
 
 <!--            <TextView-->
 <!--                android:id="@+id/text_genres"-->
