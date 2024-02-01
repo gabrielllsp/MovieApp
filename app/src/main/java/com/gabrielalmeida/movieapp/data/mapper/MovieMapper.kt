@@ -1,11 +1,15 @@
 package com.gabrielalmeida.movieapp.data.mapper
 
 import com.gabrielalmeida.movieapp.data.model.CountryResponse
+import com.gabrielalmeida.movieapp.data.model.CreditResponse
 import com.gabrielalmeida.movieapp.data.model.GenreResponse
 import com.gabrielalmeida.movieapp.data.model.MovieResponse
+import com.gabrielalmeida.movieapp.data.model.PersonResponse
 import com.gabrielalmeida.movieapp.domain.model.Country
+import com.gabrielalmeida.movieapp.domain.model.Credit
 import com.gabrielalmeida.movieapp.domain.model.Genre
 import com.gabrielalmeida.movieapp.domain.model.Movie
+import com.gabrielalmeida.movieapp.domain.model.Person
 import com.gabrielalmeida.movieapp.presenter.model.GenrePresentation
 
 fun GenreResponse.toDomain(): Genre {
@@ -15,7 +19,7 @@ fun GenreResponse.toDomain(): Genre {
     )
 }
 
-fun MovieResponse.toDomain(): Movie{
+fun MovieResponse.toDomain(): Movie {
     return Movie(
         adult = adult,
         backdropPath = backdropPath,
@@ -31,7 +35,7 @@ fun MovieResponse.toDomain(): Movie{
         video = video,
         voteAverage = voteAverage,
         voteCount = voteCount,
-        productionCountries = productionCountries?.map { it.toDomain()}
+        productionCountries = productionCountries?.map { it.toDomain() }
     )
 }
 
@@ -42,6 +46,32 @@ fun Genre.toPresentation(): GenrePresentation {
         movies = emptyList()
     )
 }
-    fun CountryResponse.toDomain() = Country(
+
+fun CountryResponse.toDomain(): Country {
+    return Country(
         name = name
     )
+}
+
+fun PersonResponse.toDomain(): Person {
+    return Person(
+        adult = adult,
+        gender = gender,
+        id = id,
+        knownForDepartment = knownForDepartment,
+        name = name,
+        originalName = originalName,
+        popularity = popularity,
+        profilePath = profilePath,
+        castId = castId,
+        character = character,
+        creditId = creditId,
+        order = order
+    )
+}
+
+fun CreditResponse.toDomain(): Credit{
+    return Credit(
+        cast = cast?.map { it.toDomain() }
+    )
+}
