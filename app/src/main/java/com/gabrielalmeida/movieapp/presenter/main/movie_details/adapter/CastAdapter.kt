@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.gabrielalmeida.movieapp.databinding.CastItemBinding
 import com.gabrielalmeida.movieapp.domain.model.Person
 
-class CastAdapter() : ListAdapter<Person, CastAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class CastAdapter : ListAdapter<Person, CastAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Person>() {

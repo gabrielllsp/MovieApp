@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="10dp"
+    android:layout_marginHorizontal="20dp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
@@ -39,16 +39,16 @@
         tools:text="Vin Diesel" />
 
     <TextView
-        android:id="@+id/cast_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:fontFamily="@font/urbanist_400"
+        android:text="Elenco"
         android:textColor="#616161"
         android:textSize="11sp"
-        android:layout_marginStart="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="Elenco" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,7 +17,7 @@ data class PersonResponse(
     val knownForDepartment: String?,
 
     @SerializedName("name")
-    val name:String?,
+    val name: String?,
 
     @SerializedName("original_name")
     val originalName: String?,
@@ -29,7 +29,7 @@ data class PersonResponse(
     val profilePath: String?,
 
     @SerializedName("cast_id")
-    val castId:Int?,
+    val castId: Int?,
 
     @SerializedName("character")
     val character: String?,
