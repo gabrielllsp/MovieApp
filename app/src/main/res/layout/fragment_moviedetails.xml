@@ -291,32 +291,32 @@
                 tools:itemCount="1"
                 tools:listitem="@layout/cast_item" />
 
-<!--            <com.google.android.material.tabs.TabLayout-->
-<!--                android:id="@+id/tabs"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="16dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:background="@android:color/transparent"-->
-<!--                android:elevation="0dp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.5"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/recycler_cast"-->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:elevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_cast"
 <!--                app:tabIndicator="@drawable/tab_indicator"-->
-<!--                app:tabSelectedTextColor="@color/color_default"-->
-<!--                app:tabTextAppearance="@style/CustomTabLayout"-->
-<!--                app:tabTextColor="#9E9E9E" />-->
+                app:tabSelectedTextColor="@color/color_default"
+                app:tabTextAppearance="@style/CustomTabLayout"
+                app:tabTextColor="#9E9E9E" />
 
-<!--            <androidx.viewpager2.widget.ViewPager2-->
-<!--                android:id="@+id/view_pager"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.5"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tabs"-->
-<!--                tools:layout_height="20dp" />-->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabs"
+                tools:layout_height="20dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

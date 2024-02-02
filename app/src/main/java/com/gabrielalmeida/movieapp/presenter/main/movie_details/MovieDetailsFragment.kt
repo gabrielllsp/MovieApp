@@ -13,8 +13,10 @@ import com.gabrielalmeida.movieapp.R
 import com.gabrielalmeida.movieapp.databinding.FragmentMoviedetailsBinding
 import com.gabrielalmeida.movieapp.domain.model.Movie
 import com.gabrielalmeida.movieapp.presenter.main.movie_details.adapter.CastAdapter
+import com.gabrielalmeida.movieapp.presenter.main.movie_details.adapter.ViewPagerAdapter
 import com.gabrielalmeida.movieapp.util.StateView
 import com.gabrielalmeida.movieapp.util.initToolbar
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -46,6 +48,33 @@ class MovieDetailsFragment : Fragment() {
         initToolbar(toolbar = binding.toolbar, lightIcon = true)
         getMovieDetails()
         initRecyclerCredits()
+        configTabLayout()
+    }
+
+    private fun configTabLayout(){
+        val adapter = ViewPagerAdapter(requireActivity())
+        binding.viewPager.adapter = adapter
+
+        adapter.addFragment(
+            fragment = TrailersFragment(),
+            title = R.string.title_trailers_tab_layout,
+        )
+        adapter.addFragment(
+            fragment = SimilarFragment(),
+            title = R.string.title_similar_tab_layout,
+        )
+        adapter.addFragment(
+            fragment = CommentsFragment(),
+            title = R.string.title_coments_tab_layout,
+        )
+
+        binding.viewPager.offscreenPageLimit = adapter.itemCount
+
+        TabLayoutMediator(
+            binding.tabs, binding.viewPager
+        ){tab, position ->
+            tab.text = getString(adapter.getTitle(position))
+        }.attach()
     }
 
     private fun getMovieDetails() {

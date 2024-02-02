@@ -62,7 +62,7 @@
     <!--    GenreItem-->
     <string name="text_show_all_genre_item">Ver todos</string>
 
-<!--    MovieDetailsFragment-->
+    <!--    MovieDetailsFragment-->
     <string name="text_button_play_movie_details_fragment">Play</string>
     <string name="text_button_download_movie_details_fragment">Download</string>
     <string name="text_all_genres_movie_details_fragment">Genêro: %1$s</string>
@@ -76,6 +76,11 @@
     <string name="title_menu_favorite">Favorite</string>
     <string name="title_menu_download">Baixar</string>
     <string name="title_menu_profile">Perfil</string>
+
+<!--    TabLayout-->
+    <string name="title_trailers_tab_layout">Trailers</string>
+    <string name="title_similar_tab_layout">Similares</string>
+    <string name="title_coments_tab_layout">Comentários</string>
 
 
 </resources>
