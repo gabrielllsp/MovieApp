@@ -5,7 +5,7 @@ import com.gabrielalmeida.movieapp.data.model.MovieResponse
 
 interface MovieRepository{
 
-    suspend fun getGenres(apiKey: String, language: String?): GenresResponse
+    suspend fun getGenres(apiKey: String?, language: String?): GenresResponse
     suspend fun getMovieByGenre(
         apiKey: String?,
         language: String?,

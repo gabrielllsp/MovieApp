@@ -10,7 +10,7 @@ class MovieRepositoryImpl @Inject constructor(
     private val serviceApi: ServiceApi
 ):MovieRepository{
 
-    override suspend fun getGenres(apiKey: String, language: String?): GenresResponse {
+    override suspend fun getGenres(apiKey: String?, language: String?): GenresResponse {
         return serviceApi.getGenres(
             apiKey = apiKey,
             language = language

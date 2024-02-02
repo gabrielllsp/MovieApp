@@ -17,5 +17,4 @@ interface MovieDetailsRepository{
         language: String?,
         movieId: Int?,
     ): CreditResponse
-
 }

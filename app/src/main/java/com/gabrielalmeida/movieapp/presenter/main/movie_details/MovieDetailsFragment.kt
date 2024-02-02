@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.gabrielalmeida.movieapp.R
 import com.gabrielalmeida.movieapp.databinding.FragmentMoviedetailsBinding
 import com.gabrielalmeida.movieapp.domain.model.Movie
+import com.gabrielalmeida.movieapp.presenter.main.movie_details.adapter.CastAdapter
 import com.gabrielalmeida.movieapp.util.StateView
 import com.gabrielalmeida.movieapp.util.initToolbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,6 +29,8 @@ class MovieDetailsFragment : Fragment() {
 
     private val viewModel: MovieDetailsViewModel by viewModels()
 
+    private lateinit var castAdapter: CastAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +45,7 @@ class MovieDetailsFragment : Fragment() {
 
         initToolbar(toolbar = binding.toolbar, lightIcon = true)
         getMovieDetails()
+        initRecyclerCredits()
     }
 
     private fun getMovieDetails() {
@@ -57,13 +62,24 @@ class MovieDetailsFragment : Fragment() {
         }
     }
 
+    private fun initRecyclerCredits(){
+        castAdapter = CastAdapter()
+        with(binding.recyclerCast){
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(
+                requireContext(), LinearLayoutManager.HORIZONTAL, false
+            )
+            adapter = castAdapter
+        }
+    }
+
     private fun getCredits() {
         viewModel.getCredits(movieId = args.movieId).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
 
                 is StateView.Loading -> {}
                 is StateView.Success -> {
-
+                    castAdapter.submitList(stateView.data?.cast)
                 }
 
                 is StateView.Error -> {}
@@ -96,6 +112,8 @@ class MovieDetailsFragment : Fragment() {
         binding.textGenres.text = getString(R.string.text_all_genres_movie_details_fragment, genres)
 
         binding.textDescription.text = movie?.overview
+
+        getCredits()
     }
 
     override fun onDestroy() {

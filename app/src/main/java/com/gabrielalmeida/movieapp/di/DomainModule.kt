@@ -4,6 +4,7 @@ import com.gabrielalmeida.movieapp.data.repository.auth.FirebaseAuthenticationIm
 import com.gabrielalmeida.movieapp.data.repository.movie.MovieDetailsRepositoryImpl
 import com.gabrielalmeida.movieapp.data.repository.movie.MovieRepositoryImpl
 import com.gabrielalmeida.movieapp.domain.repository.auth.FirebaseAuthentication
+import com.gabrielalmeida.movieapp.domain.repository.movie.MovieDetailsRepository
 import com.gabrielalmeida.movieapp.domain.repository.movie.MovieRepository
 import dagger.Binds
 import dagger.Module
@@ -26,6 +27,8 @@ abstract class DomainModule {
 
     @Binds
     abstract fun bindsMovieDetailsRepositoryImpl(
-        movieRepositoryImpl: MovieDetailsRepositoryImpl,
-    ): MovieDetailsRepositoryImpl
+        movieDetailsRepositoryImpl: MovieDetailsRepositoryImpl
+    ): MovieDetailsRepository
+
+
 }
