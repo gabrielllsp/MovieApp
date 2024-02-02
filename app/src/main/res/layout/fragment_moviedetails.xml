@@ -303,7 +303,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_cast"
-<!--                app:tabIndicator="@drawable/tab_indicator"-->
+                app:tabIndicator="@drawable/tab_indicator"
                 app:tabSelectedTextColor="@color/color_default"
                 app:tabTextAppearance="@style/CustomTabLayout"
                 app:tabTextColor="#9E9E9E" />
