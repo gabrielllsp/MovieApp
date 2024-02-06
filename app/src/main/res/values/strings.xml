@@ -65,7 +65,7 @@
     <!--    MovieDetailsFragment-->
     <string name="text_button_play_movie_details_fragment">Play</string>
     <string name="text_button_download_movie_details_fragment">Download</string>
-    <string name="text_all_genres_movie_details_fragment">Genêro: %1$s</string>
+    <string name="text_all_genres_movie_details_fragment">Gênero: %1$s</string>
 
     <!--    MovieGenreFragment-->
     <string name="text_search_hint_movie_genre_fragment">Pesquisar</string>
