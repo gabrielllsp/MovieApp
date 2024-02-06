@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -29,7 +29,7 @@ class MovieDetailsFragment : Fragment() {
     private var _binding: FragmentMoviedetailsBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: MovieDetailsViewModel by viewModels()
+    private val viewModel: MovieDetailsViewModel by activityViewModels()
 
     private lateinit var castAdapter: CastAdapter
 
@@ -52,6 +52,7 @@ class MovieDetailsFragment : Fragment() {
     }
 
     private fun configTabLayout(){
+        viewModel.setMovieId(movieId = args.movieId)
         val adapter = ViewPagerAdapter(requireActivity())
         binding.viewPager.adapter = adapter
 
