@@ -1,14 +1,18 @@
 package com.gabrielalmeida.movieapp.data.mapper
 
+import com.gabrielalmeida.movieapp.data.model.AuthorDetailsResponse
 import com.gabrielalmeida.movieapp.data.model.CountryResponse
 import com.gabrielalmeida.movieapp.data.model.CreditResponse
 import com.gabrielalmeida.movieapp.data.model.GenreResponse
 import com.gabrielalmeida.movieapp.data.model.MovieResponse
+import com.gabrielalmeida.movieapp.data.model.MovieReviewResponse
 import com.gabrielalmeida.movieapp.data.model.PersonResponse
+import com.gabrielalmeida.movieapp.domain.model.AuthorDetails
 import com.gabrielalmeida.movieapp.domain.model.Country
 import com.gabrielalmeida.movieapp.domain.model.Credit
 import com.gabrielalmeida.movieapp.domain.model.Genre
 import com.gabrielalmeida.movieapp.domain.model.Movie
+import com.gabrielalmeida.movieapp.domain.model.MovieReview
 import com.gabrielalmeida.movieapp.domain.model.Person
 import com.gabrielalmeida.movieapp.presenter.model.GenrePresentation
 
@@ -73,5 +77,26 @@ fun PersonResponse.toDomain(): Person {
 fun CreditResponse.toDomain(): Credit{
     return Credit(
         cast = cast?.map { it.toDomain() }
+    )
+}
+
+fun AuthorDetailsResponse.toDomain(): AuthorDetails{
+    return AuthorDetails(
+        name = name,
+        username = username,
+        avatarPath = "https://image.tmdb.org/t/p/w500$avatarPath",
+        rating = rating
+    )
+}
+
+fun MovieReviewResponse.toDomain(): MovieReview{
+    return MovieReview(
+        author = author,
+        authorDetails = authorDetailsResponse?.toDomain(),
+        content = content,
+        createdAt = createdAt,
+        id = id,
+        updatedAt = updatedAt,
+        url = url
     )
 }
