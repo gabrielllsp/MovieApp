@@ -1,4 +1,4 @@
-package com.gabrielalmeida.movieapp.presenter.main.movie_details
+package com.gabrielalmeida.movieapp.presenter.main.moviedetails.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,8 +12,11 @@ import com.bumptech.glide.Glide
 import com.gabrielalmeida.movieapp.R
 import com.gabrielalmeida.movieapp.databinding.FragmentMoviedetailsBinding
 import com.gabrielalmeida.movieapp.domain.model.Movie
-import com.gabrielalmeida.movieapp.presenter.main.movie_details.adapter.CastAdapter
-import com.gabrielalmeida.movieapp.presenter.main.movie_details.adapter.ViewPagerAdapter
+import com.gabrielalmeida.movieapp.presenter.main.moviedetails.similar.SimilarFragment
+import com.gabrielalmeida.movieapp.presenter.main.moviedetails.trailers.TrailersFragment
+import com.gabrielalmeida.movieapp.presenter.main.moviedetails.adapter.CastAdapter
+import com.gabrielalmeida.movieapp.presenter.main.moviedetails.adapter.ViewPagerAdapter
+import com.gabrielalmeida.movieapp.presenter.main.moviedetails.comments.CommentsFragment
 import com.gabrielalmeida.movieapp.util.StateView
 import com.gabrielalmeida.movieapp.util.initToolbar
 import com.google.android.material.tabs.TabLayoutMediator

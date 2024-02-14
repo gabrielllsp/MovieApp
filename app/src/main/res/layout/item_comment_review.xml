@@ -21,6 +21,7 @@
             android:id="@+id/image_user"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:elevation="0dp"
             tools:ignore="ContentDescription"
             tools:src="@drawable/person_comment_placeholder" />
 

@@ -1,4 +1,4 @@
-package com.gabrielalmeida.movieapp.presenter.main.movie_details
+package com.gabrielalmeida.movieapp.presenter.main.moviedetails.details
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

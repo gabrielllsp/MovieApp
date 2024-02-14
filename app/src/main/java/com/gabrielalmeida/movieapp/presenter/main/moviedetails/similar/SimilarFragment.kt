@@ -1,4 +1,4 @@
-package com.gabrielalmeida.movieapp.presenter.main.movie_details
+package com.gabrielalmeida.movieapp.presenter.main.moviedetails.similar
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +13,7 @@ import com.gabrielalmeida.movieapp.MainGraphDirections
 import com.gabrielalmeida.movieapp.R
 import com.gabrielalmeida.movieapp.databinding.FragmentSimilarBinding
 import com.gabrielalmeida.movieapp.presenter.main.bottombar.home.adapter.MovieAdapter
+import com.gabrielalmeida.movieapp.presenter.main.moviedetails.details.MovieDetailsViewModel
 import com.gabrielalmeida.movieapp.util.StateView
 import dagger.hilt.android.AndroidEntryPoint
 

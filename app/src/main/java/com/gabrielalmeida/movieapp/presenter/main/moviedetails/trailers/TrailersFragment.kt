@@ -1,4 +1,4 @@
-package com.gabrielalmeida.movieapp.presenter.main.movie_details
+package com.gabrielalmeida.movieapp.presenter.main.moviedetails.trailers
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.gabrielalmeida.movieapp.R
 
 
-class CommentsFragment : Fragment() {
+class TrailersFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -16,6 +16,8 @@ class CommentsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_comments, container, false)
+        return inflater.inflate(R.layout.fragment_trailers, container, false)
     }
+
+
 }
