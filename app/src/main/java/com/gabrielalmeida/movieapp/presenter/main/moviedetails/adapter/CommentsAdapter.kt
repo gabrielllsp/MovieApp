@@ -54,12 +54,10 @@ class CommentsAdapter : ListAdapter<MovieReview, CommentsAdapter.MyViewHolder>(D
             )
         }
 
-
         holder.binding.textUsername.text = review.authorDetails?.username
         holder.binding.textComment.text = review.content
         holder.binding.textRating.text = review?.authorDetails?.rating?.toString() ?: "0"
         holder.binding.textDate.text = formatCommentDate(review.createdAt)
-
     }
 
     inner class MyViewHolder(val binding: ItemCommentReviewBinding) :
