@@ -2,6 +2,7 @@ package com.gabrielalmeida.movieapp.domain.repository.movie
 
 import com.gabrielalmeida.movieapp.data.model.CreditResponse
 import com.gabrielalmeida.movieapp.data.model.MovieResponse
+import com.gabrielalmeida.movieapp.data.model.MovieReviewResponse
 
 interface MovieDetailsRepository{
 
@@ -23,4 +24,10 @@ interface MovieDetailsRepository{
         language: String?,
         movieId: Int?,
     ): List<MovieResponse>
+
+    suspend fun getMovieReviews(
+        apiKey: String?,
+        language: String?,
+        movieId: Int?,
+    ): List<MovieReviewResponse>
 }

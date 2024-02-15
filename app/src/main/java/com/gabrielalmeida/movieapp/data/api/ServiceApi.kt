@@ -4,6 +4,7 @@ import com.gabrielalmeida.movieapp.data.model.BasePaginationRemote
 import com.gabrielalmeida.movieapp.data.model.CreditResponse
 import com.gabrielalmeida.movieapp.data.model.GenresResponse
 import com.gabrielalmeida.movieapp.data.model.MovieResponse
+import com.gabrielalmeida.movieapp.data.model.MovieReviewResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -50,4 +51,11 @@ interface ServiceApi {
         @Query("api_key") apiKey: String?,
         @Query("language") language: String?
     ): BasePaginationRemote<List<MovieResponse>>
+
+    @GET("movie/{movie_id}/reviews")
+    suspend fun getMovieReviews(
+        @Path("movie_id") movieId: Int?,
+        @Query("api_key") apiKey: String?,
+        @Query("language") language: String?
+    ): BasePaginationRemote<List<MovieReviewResponse>>
 }

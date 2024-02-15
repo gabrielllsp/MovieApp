@@ -3,6 +3,7 @@ package com.gabrielalmeida.movieapp.data.repository.movie
 import com.gabrielalmeida.movieapp.data.api.ServiceApi
 import com.gabrielalmeida.movieapp.data.model.CreditResponse
 import com.gabrielalmeida.movieapp.data.model.MovieResponse
+import com.gabrielalmeida.movieapp.data.model.MovieReviewResponse
 import com.gabrielalmeida.movieapp.domain.repository.movie.MovieDetailsRepository
 import javax.inject.Inject
 
@@ -41,6 +42,18 @@ class MovieDetailsRepositoryImpl @Inject constructor(
     ): List<MovieResponse> {
         return serviceApi.getSimilar(
            apiKey = apiKey,
+            language = language,
+            movieId = movieId
+        ).results ?: emptyList()
+    }
+
+    override suspend fun getMovieReviews(
+        apiKey: String?,
+        language: String?,
+        movieId: Int?,
+    ): List<MovieReviewResponse> {
+        return serviceApi.getMovieReviews(
+            apiKey = apiKey,
             language = language,
             movieId = movieId
         ).results ?: emptyList()
