@@ -1,40 +1,53 @@
 package com.gabrielalmeida.movieapp.presenter.main.bottombar.search
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
+import androidx.lifecycle.viewModelScope
 import com.gabrielalmeida.movieapp.BuildConfig
+import com.gabrielalmeida.movieapp.domain.model.Movie
 import com.gabrielalmeida.movieapp.domain.usecase.movie.SearchMoviesUseCase
 import com.gabrielalmeida.movieapp.util.Constants
 import com.gabrielalmeida.movieapp.util.StateView
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    private val searchMoviesUseCase: SearchMoviesUseCase
-): ViewModel() {
+    private val searchMoviesUseCase: SearchMoviesUseCase,
+) : ViewModel() {
 
-    fun searchMovies(query: String?) = liveData(Dispatchers.IO) {
-        try {
-            emit(StateView.Loading())
+    private val _movieList = MutableLiveData<List<Movie>>()
+    val movieList: LiveData<List<Movie>>
+        get() = _movieList
 
-            val movies = searchMoviesUseCase.invoke(
-                apiKey = BuildConfig.API_KEY,
-                language = Constants.Movie.LANGUAGE,
-                query = query
+    private val _searchState = MutableLiveData<StateView<Unit>>()
+    val searchState: LiveData<StateView<Unit>> get() = _searchState
 
-            )
+    fun searchMovies(query: String?) {
+        viewModelScope.launch {
+            try {
+                _searchState.postValue(StateView.Loading())
 
-            emit(StateView.Success(movies))
+                val movies = searchMoviesUseCase(
+                    apiKey = BuildConfig.API_KEY,
+                    language = Constants.Movie.LANGUAGE,
+                    query = query
 
-        } catch (e: HttpException) {
-            e.printStackTrace()
-            emit(StateView.Error(message = e.message))
-        } catch (e: Exception) {
-            e.printStackTrace()
-            emit(StateView.Error(message = e.message))
+                )
+
+                _movieList.postValue(movies)
+                _searchState.postValue(StateView.Success(Unit))
+
+            } catch (e: HttpException) {
+                e.printStackTrace()
+                _searchState.postValue(StateView.Error(message = e.message))
+            } catch (e: Exception) {
+                e.printStackTrace()
+                _searchState.postValue(StateView.Error(message = e.message))
+            }
         }
     }
 }
